@@ -1,0 +1,87 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.ultimate-game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 600px;
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .ultimate-game {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
+
+.mini-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.mini-board .square {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.square {
+  font-size: 3vw; /* Make font size responsive */
+}
+
+.square > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 600px) {
+  .mini-board .square {
+    font-size: 5vw; /* Increase font size for smaller screens */
+  }
+}
+
+.mini-board .square:disabled {
+  cursor: default;
+  background-color: #eaeaea;
+}
+
+.mini-board .square:disabled,
+.mini-board.inactive .square {
+  cursor: not-allowed;
+  background-color: #eaeaea;
+  color: #ccc; /* Dim the text color for disabled squares */
+}
+
+/* Style for inactive mini-boards */
+.mini-board.inactive {
+  opacity: 0.6; /* You can adjust the opacity as needed */
+}
+
+.mini-board .winner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 30px; /* Adjust as needed */
+  color: #333;
+}
